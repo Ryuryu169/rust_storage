@@ -1,15 +1,18 @@
 pub mod initial {
-    pub fn init(){
-        if(check_log()){
-            
-        }
-    }
+    pub use crate::create_account::account;
+    pub use crate::util::general;
+    use std::fs;
+    use std::io::prelude::*;
+    use std::path::Path;
+    use chrono::prelude::*;
 
-    fn check_log(){
-        let file_path = Path::new("");
-        if !(file_path.exists() || file_path.is_file()){
-            return false;
+    pub fn init(){
+        let first = general::check_file("acount.txt");
+        if !first {
+            // Functions for initialize
+
         }
-        return true;
+        account::create_new_account("kaname", "reweti");
+        println!("Welcome to kaname Database!!!\n");
     }
 }
