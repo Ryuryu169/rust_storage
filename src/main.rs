@@ -1,11 +1,16 @@
 mod log;
 mod init;
-mod create_account;
+mod account_general;
+mod key_master;
 mod util;
-pub use crate::log::log_file;
+mod encryption;
+mod salt;
+//pub use crate::log::log_file;
 pub use crate::init::initial;
 
+// Debug inports
+//use std::fs;
+
 pub fn main() {
-    // Initialize the database first
     initial::init();
 }
