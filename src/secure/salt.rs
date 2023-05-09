@@ -13,15 +13,17 @@ pub mod salt {
         // 
         general::check_file_create(SALT_FILE_PATH, STRICT_FILE_STATE, RANDOM_FILE_STATE);
     }
-    pub fn add_salt(token: &str){
+    pub fn add_salt(token: &str) -> String {
         let salt = return_salt(token);
         if salt == "" {
             let mut file = fs::OpenOptions::new().append(true).open(SALT_FILE_PATH).unwrap();
             let num_of_lines = general::count_line_file(SALT_FILE_PATH);
-            let salt = generate_salt();
-            write!(file,"{} {} {:?}",num_of_lines,token,salt).unwrap();
+            let new_salt = generate_salt();
+            write!(file,"{} {} {:?}",num_of_lines,token,new_salt).unwrap();
+            return new_salt;
         }
         println!("Error: Salt already exists");
+        return salt;
     }
     pub fn return_salt(token: &str) -> String {
         let file = fs::File::open(SALT_FILE_PATH).unwrap();
@@ -35,10 +37,10 @@ pub mod salt {
         }
         return format!("");
     }
-    pub fn generate_salt() -> [u8; 16] {
+    pub fn generate_salt() -> String {
         let mut salt = [0u8; 16];
         let mut os_rng = OsRng;
         os_rng.fill_bytes(&mut salt);
-        salt
+        hex::encode(salt)
     }
 }

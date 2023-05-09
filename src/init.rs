@@ -1,7 +1,7 @@
 pub mod initial {
-    pub use crate::account_general::create_account;
-    pub use crate::key_master::encrypt_key;
-    pub use crate::salt::salt;
+    pub use crate::secure::account_general::create_account;
+    pub use crate::secure::key_master::encrypt_key;
+    pub use crate::secure::salt::salt;
     pub use crate::util::general;
     pub use crate::log::log_file;
     use std::process::Command;
@@ -29,6 +29,6 @@ pub mod initial {
             create_account::init_account();
             encrypt_key::init_encrypt_key();
         }
-        println!("Welcome to kaname Database!!!\n");
+        println!("Welcome to kaname Database!!!\n\n\n");
     }
 }

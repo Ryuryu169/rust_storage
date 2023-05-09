@@ -8,8 +8,8 @@ pub mod general{
     use digest::Digest;
     use sha2::Sha256;
     use hex;
-    pub use crate::salt::salt;
-    pub use crate::encryption::encryption;
+    pub use crate::secure::salt::salt;
+    pub use crate::secure::encryption::encryption;
     pub use crate::log::log_file;
 
     // use self::encryption::encrypt_file;

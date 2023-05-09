@@ -14,12 +14,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "aes-ctr"
-version = "0.99.99"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "67e81157a0daf1b32f9e4098426922986805ffe7da17463f220636152a705723"
-
-[[package]]
 name = "android_system_properties"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -451,7 +445,6 @@ name = "ruststorage"
 version = "0.1.0"
 dependencies = [
  "aes",
- "aes-ctr",
  "block-modes",
  "chrono",
  "digest",

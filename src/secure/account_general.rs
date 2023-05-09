@@ -1,6 +1,7 @@
 pub mod create_account{
     pub use crate::util::general;
     pub use crate::log::log_file;
+    pub use crate::secure::salt::salt;
     use std::io::{BufRead, BufReader,Write};
     use std::fs;
 
@@ -11,6 +12,9 @@ pub mod create_account{
     static RANDOM_FILE_STATE: bool = true;
 
     pub fn create_new_account(id: &str, pass: &str){
+        let salt = salt::generate_salt();
+
+        let original_path = format!("");
         let hash_id = general::hash_string(id);
         let exist = check_account_exist(&hash_id);
 
