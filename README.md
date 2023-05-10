@@ -24,4 +24,5 @@ Usage
 To use ruststorage, download the code and execute the following command:
 ```
 cargo build
+cargo run
 ```
